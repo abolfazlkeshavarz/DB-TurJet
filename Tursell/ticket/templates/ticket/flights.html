@@ -1,0 +1,17 @@
+{% extends "ticket/base.html" %}
+{% block content %}
+{% for flight in flights %}
+<li>
+    <strong>Flight ID:</strong> {{ flight.flight_id }}<br>
+    <strong>Departure Date:</strong> {{ flight.departure_date }}<br>
+    <strong>Departure Time:</strong> {{ flight.departure_time }}<br>
+    <strong>Arrival Date:</strong> {{ flight.arrival_date }}<br>
+    <strong>Departure Location:</strong> {{ flight.departure_location }}<br>
+    <strong>Arrival Location:</strong> {{ flight.arrival_location }}<br>
+    <strong>Flight Type:</strong> {{ flight.flight_type }}<br>
+    <strong>Plane ID:</strong> {{ flight.plane_id }}<br>
+    <a href="{% url 'buy_ticket' %}?flight_id={{ flight.flight_id }}&departure_location={{ flight.departure_location }}&arrival_location={{ flight.arrival_location }}&departure_date={{ flight.departure_date }}">Buy Ticket</a>
+    <p>********************************************************</p>
+</li>
+{% endfor %}
+{% endblock content %}

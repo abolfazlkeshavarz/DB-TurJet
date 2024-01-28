@@ -1,0 +1,11 @@
+{% extends "ticket/base.html" %}
+{% block content %}
+
+<h1 class='text-center'>Login</h1>
+<form method="POST" class='text-center mt-5 row justify-content-center'>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class='btn btn-primary w-25' type="submit">LogIn</button>
+    <a class='py-3 text-info' href="{% url 'register' %}">Dont have Account? Create!</a>
+</form>
+{% endblock content%}
